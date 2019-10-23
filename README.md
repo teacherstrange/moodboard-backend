@@ -10,3 +10,14 @@
     $ git clone https://github.com/z1digitalstudio/moodboard-backend.git
     $ cd moodboard-backend
     $ vagrant up --provision
+    
+ ## Development
+ 
+    $ yarn start:dev
+    
+ ## Migrations Scripts
+ 
+    $ yarn migration:generate
+    $ yarn migration:create
+    $ yarn migration:run
+    $ yarn migration:revert

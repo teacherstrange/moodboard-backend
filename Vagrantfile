@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/bionic64"
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.network :forwarded_port, host: 8002, guest: 8000
+  config.vm.network :forwarded_port, host: 3000, guest: 3000
   config.vm.network :forwarded_port, host: 8005, guest: 8001
   config.vm.network :forwarded_port, host: 8444, guest: 443
   config.vm.network :forwarded_port, host: 54320, guest: 5432

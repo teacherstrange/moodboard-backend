@@ -38,7 +38,9 @@ service postgresql restart
 sudo -u postgres bash -c "psql -c \"CREATE USER commite WITH PASSWORD 'commite';\""
 sudo -u postgres createdb --owner=commite --encoding=UTF8 moodboard_db
 
-echo "export PATH='$PATH:/opt/yarn-1.19.1/bin'" >> /home/vagrant/.profile
+echo "export PATH=\$PATH:/opt/yarn-1.19.1/bin" >> /home/vagrant/.profile
+echo "export PATH=\$PATH:/home/vagrant/moodboard/node_modules/.bin" >> /home/vagrant/.profile
+echo "cd /home/vagrant/moodboard" >> /home/vagrant/.profile
 
 su - vagrant << EOF
 cd /home/vagrant/moodboard/
