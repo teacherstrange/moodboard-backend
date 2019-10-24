@@ -2,12 +2,16 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule, ConfigService } from 'nestjs-config';
+import { JwtStrategy } from './modules/auth/jwt.strategy';
 
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import * as path from 'path';
 
-import UserModule from './modules/user/user.module';
+import {UsersModule} from './modules/users/users.module';
+import {AuthModule} from './modules/auth/auth.module';
+import { PassportModule } from '@nestjs/passport';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -18,13 +22,20 @@ import UserModule from './modules/user/user.module';
       useFactory: (config: ConfigService) => config.get('database'),
       inject: [ConfigService],
     }),
-    UserModule,
+    AuthModule,
+    UsersModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.register({
+      secret: process.env.JWT_SECRET_KEY,
+      signOptions: { expiresIn: '1h' },
+    }),
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
       playground: true,
+      context: ({ req }) => ({ req }),
     }),
   ],
   controllers: [ AppController ],
-  providers: [ AppService ],
+  providers: [ AppService, JwtStrategy ],
 })
 export class AppModule {}
