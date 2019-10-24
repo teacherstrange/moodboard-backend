@@ -7,6 +7,6 @@ export default {
   port: Number(process.env.TYPEORM_PORT),
   entities: ['dist/modules/**/*.entity.js'],
   migrations: ['dist/migrations/**/*.ts'],
-  synchronize: process.env.TYPEORM_SYNCHRONIZE === 'true',
-  logging: process.env.TYPEORM_LOGGING === 'true',
+  synchronize: true,
+  logging: true,
 };

@@ -21,7 +21,7 @@ import UserModule from './modules/user/user.module';
     UserModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
-      playground: process.env.GRAPHQL_PLAYGROUND === 'true',
+      playground: true,
     }),
   ],
   controllers: [ AppController ],
