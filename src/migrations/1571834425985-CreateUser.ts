@@ -42,6 +42,18 @@ export class CreateUser1571834425985 implements MigrationInterface {
                 type: 'timestamptz',
                 isNullable: false,
                 default: 'now()',
+            },
+            {
+                name: 'password',
+                type: 'varchar',
+                length: '100',
+                isNullable: true,
+            },
+            {
+                name: 'salt',
+                type: 'varchar',
+                length: '250',
+                isNullable: true,
             }],
     });
 
