@@ -12,7 +12,7 @@
     $ vagrant up --provision
     
  ## Development
- 
+    configure .env
     $ yarn start:dev
     
  ## Migrations Scripts

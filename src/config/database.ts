@@ -5,11 +5,8 @@ export default {
   password: process.env.TYPEORM_PASSWORD,
   database: process.env.TYPEORM_DATABASE,
   port: Number(process.env.TYPEORM_PORT),
-  entities: [__dirname + 'src/db/models/**.entity{.ts,.js}'],
-  synchronize: process.env.TYPEORM_SYNCHRONIZE,
-  migrations: [__dirname + 'src/db/migrations/**/*.ts'],
-  cli: {
-    entitiesDir: 'entities',
-    migrationsDir: 'migrations',
-  },
+  entities: ['dist/modules/**/*.entity.js'],
+  migrations: ['dist/migrations/**/*.ts'],
+  synchronize: process.env.TYPEORM_SYNCHRONIZE === 'true',
+  logging: process.env.TYPEORM_LOGGING === 'true',
 };
