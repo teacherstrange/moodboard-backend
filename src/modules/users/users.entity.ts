@@ -18,15 +18,15 @@ export class User {
   id: string;
 
   @Field()
-  @Column('varchar', { length: 500 })
+  @Column('varchar', { length: 100, nullable: true})
   firstName?: string;
 
   @Field()
-  @Column('varchar', { length: 500 })
+  @Column('varchar', { length: 500, nullable: true })
   lastName?: string;
 
   @Field()
-  @Column('varchar', { length: 500, unique: true })
+  @Column('varchar', { length: 100, unique: true })
   email: string;
 
   @Field()
@@ -41,7 +41,7 @@ export class User {
   salt: string|undefined;
 
   @Field()
-  @Column({ length: 100, nullable: true })
+  @Column({ length: 255, nullable: true })
   password: string|undefined;
 
   @BeforeInsert()
