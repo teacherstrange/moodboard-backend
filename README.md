@@ -13,6 +13,7 @@
     
  ## Development
     configure .env
+    $ npx nestjs-admin createAdminUser
     $ yarn start:dev
     
  ## Migrations Scripts

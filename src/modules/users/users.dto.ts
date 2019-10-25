@@ -1,9 +1,22 @@
 import { Field, ObjectType} from 'type-graphql';
+import { IsEmail, IsString } from 'class-validator';
 
 @ObjectType()
 export class CreateUserDto {
-  @Field() readonly email: string;
-  @Field() readonly firstName: string;
-  @Field() readonly lastName: string;
-  @Field() readonly password: string;
+
+  @IsEmail()
+  @Field()
+  readonly email: string;
+
+  @IsString()
+  @Field()
+  readonly firstName?: string;
+
+  @IsString()
+  @Field()
+  readonly lastName?: string;
+
+  @IsString()
+  @Field()
+  readonly password: string;
 }

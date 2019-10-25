@@ -14,7 +14,7 @@ export class AuthController {
 
   @Post('login')
   async loginUser(@Response() res: any, @Body() body: User) {
-    this.logger.log('loginUser called');
+    this.logger.log('login user called');
     if (!(body && body.email && body.password)) {
       return res.status(HttpStatus.FORBIDDEN).json({
         message: 'Username and password are required!',
@@ -41,7 +41,7 @@ export class AuthController {
 
   @Post('register')
   async registerUser(@Response() res: any, @Body() body: User) {
-    this.logger.log('register called');
+    this.logger.log('register user called');
     if (!(body && body.email && body.password)) {
       return res.status(HttpStatus.FORBIDDEN).json({
         message: 'email and password are required!',

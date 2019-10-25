@@ -14,16 +14,16 @@ import { createHmac } from 'crypto';
 export class User {
 
   @Field()
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Field()
   @Column('varchar', { length: 500 })
-  firstName: string;
+  firstName?: string;
 
   @Field()
   @Column('varchar', { length: 500 })
-  lastName: string;
+  lastName?: string;
 
   @Field()
   @Column('varchar', { length: 500, unique: true })
