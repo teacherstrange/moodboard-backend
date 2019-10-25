@@ -27,7 +27,10 @@ export class AuthController {
         user.password,
         user.salt)) {
         return res.status(HttpStatus.OK).json(
-          await this.authService.createToken(user.email, user.id),
+          {
+            token: await this.authService.createToken(user.email, user.id),
+            id: user.id,
+          },
         );
       }
     }

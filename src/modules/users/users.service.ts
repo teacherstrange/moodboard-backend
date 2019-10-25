@@ -38,7 +38,7 @@ export class UsersService {
   }
 
   async getByEmail(email: string): Promise<User> {
-    return  await this.userRepository.findOne(email);
+    return  await this.userRepository.findOne({email});
   }
 
   async compareHash(
@@ -57,7 +57,6 @@ export class UsersService {
         return false;
       }
     } catch (err) {
-      this.logger.log('argon2 error');
       return false;
     }
   }

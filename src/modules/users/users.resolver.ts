@@ -3,7 +3,7 @@ import {User} from './users.entity';
 import {UsersInput} from './users.input';
 import {UsersService} from './users.service';
 import { UseGuards } from '@nestjs/common';
-import { User as CurrentUser } from './users.decorator';
+import { CurrentUser } from './users.decorator';
 import {GqlAuthGuard} from '../auth/graphql-auth.guard';
 
 @Resolver()
